@@ -154,7 +154,7 @@ function printCoverCat(data){
         html+=`<div class="col-lg-4 col-md-6 pb-1">
         <div class="cat-item d-flex flex-column " style="padding: 30px;">
             
-            <a id="${d.id}" onclick="getCatId(this.id) href="shop.html" class="cat-img position-relative overflow-hidden mb-3">
+            <a id="${d.id}" onclick="getCatId(this.id)" href="shop.html" class="cat-img position-relative overflow-hidden mb-3">
                 <img class="img-fluid" src="assets/img/${d.cover}" alt="${d.name}" ">
             </a>
             <h5 class="font-weight-semi-bold m-0">${d.name}</h5>
