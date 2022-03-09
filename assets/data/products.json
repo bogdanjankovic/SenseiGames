@@ -1,0 +1,194 @@
+[
+    {
+        "id":1,
+        "name":"Mario Kart 8 Deluxe",
+        "cat":5,
+        "platform":[4],
+        "price":{
+            "old":"$59.99",
+            "new":"$39.99"
+        },
+        "image":{
+            "img":"Mario-Kart-8-Deluxe.webp",
+            "alt":"Mario-Kart-8-Deluxe"
+        },
+        "available":true,
+        "new":false
+    },
+    {
+        "id":2,
+        "name":"Dragon Age: Inquisition",
+        "cat":3,
+        "platform":[1,2,5],
+        "price":{
+            "old":"$59.99",
+            "new":"$5.99"
+        },
+        "image":{
+            "img":"Dragon-Age-Inquisition-Game-of-the-Year-Edition.webp",
+            "alt":"Dragon Age: Inquisition"
+        },
+        "available":true,
+        "new":false
+    },
+    {
+        "id":3,
+        "name":"The Elder Scrolls V",
+        "cat":3,
+        "platform":[1,2,3],
+        "price":{
+            "old":"$19.99",
+            "new":"$17.99"
+        },
+        "image":{
+            "img":"The-Elder-Scrolls-V-Skyrim.jpg",
+            "alt":"The Elder Scrolls V"
+        },
+        "available":true,
+        "new":false
+    },
+    {
+        "id":4,
+        "name":"Red Dead Redemption 2",
+        "cat":1,
+        "platform":[1,2,3,5],
+        "price":{
+            "old":"",
+            "new":"$59.99"
+        },
+        "image":{
+            "img":"Red-Dead-Redemption-2.webp",
+            "alt":"Red Dead Redemption 2"
+        },
+        "available":true,
+        "new":false
+    },
+    {
+        "id":5,
+        "name":"Assassin's Creed Valhalla: Dawn of Ragnarok",
+        "cat":1,
+        "platform":[1,5],
+        "price":{
+            "old":"",
+            "new":"$39.99"
+        },
+        "image":{
+            "img":"Assassins-Creed-Valhalla.jpg",
+            "alt":"Assassin's Creed Valhalla: Dawn of Ragnarok"
+        },
+        "available":true,
+        "new":true
+    },
+    {
+        "id":6,
+        "name":"NBA 2K22",
+        "cat":4,
+        "platform":[1,2,3,4,5],
+        "price":{
+            "old":"$59.99",
+            "new":"$19.80"
+        },
+        "image":{
+            "img":"NBA-2K22.webp",
+            "alt":"NBA 2K22"
+        },
+        "available":true,
+        "new":true
+    },
+    {
+        "id":7,
+        "name":"WWE 2K22",
+        "cat":4,
+        "platform":[1,2,3,4,5],
+        "price":{
+            "old":"",
+            "new":"$119.99"
+        },
+        "image":{
+            "img":"WWE-2K22.jpg",
+            "alt":"WWE 2K22"
+        },
+        "available":true,
+        "new":true
+    },
+    {
+        "id":8,
+        "name":"Grand Theft Auto V: Premium Edition",
+        "cat":1,
+        "platform":[1,2,3,5],
+        "price":{
+            "old":"$29.99",
+            "new":"$14.99"
+        },
+        "image":{
+            "img":"Grand-Theft-Auto-V-Premium-Edition.jpg",
+            "alt":"Grand Theft Auto V: Premium Edition"
+        },
+        "available":true,
+        "new":false
+    },
+    {
+        "id":9,
+        "name":"Elden Ring",
+        "cat":3,
+        "platform":[1,2,3,5],
+        "price":{
+            "old":"",
+            "new":"$59.99"
+        },
+        "image":{
+            "img":"Elden-Ring.jpg",
+            "alt":"Elden Ring"
+        },
+        "available":true,
+        "new":true
+    },
+    {
+        "id":10,
+        "name":"Age of Empires IV",
+        "cat":6,
+        "platform":[1],
+        "price":{
+            "old":"$59.99",
+            "new":"$53.99"
+        },
+        "image":{
+            "img":"Age-of-Empires-IV---PC.jpg",
+            "alt":"Age of Empires IV"
+        },
+        "available":true,
+        "new":true
+    },
+    {
+        "id":11,
+        "name":"Call of Duty: Black Ops 4",
+        "cat":2,
+        "platform":[1,2,3,5],
+        "price":{
+            "old":"",
+            "new":"$59.99"
+        },
+        "image":{
+            "img":"Call-of-Duty-Black-Ops-4---PC.jpg",
+            "alt":"Call of Duty: Black Ops 4"
+        },
+        "available":true,
+        "new":false
+    },
+    {
+        "id":12,
+        "name":"Forza Horizon 5",
+        "cat":5,
+        "platform":[2],
+        "price":{
+            "old":"$59.99",
+            "new":"$50.94"
+        },
+        "image":{
+            "img":"Forza-Horizon-5---Xbox-Series-X.jpg",
+            "alt":"Forza Horizon 5"
+        },
+        "available":true,
+        "new":true
+    }
+]

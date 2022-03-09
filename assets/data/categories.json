@@ -1,0 +1,32 @@
+[
+    {
+        "id":1,
+        "name":"Action",
+        "cover":"dying-light-2-key-art.jpg"
+    },
+    {
+        "id":2,
+        "name":"First-person Shooter",
+        "cover":"Far-Cry-6-logo-characters.jpg.webp"
+    },
+    {
+        "id":3,
+        "name":"RPG",
+        "cover":"elden-ring-bear-scaled.webp"
+    },
+    {
+        "id":4,
+        "name":"Sport Simulation",
+        "cover":"wwe2k22.webp"
+    },
+    {
+        "id":5,
+        "name":"Racing Simulation",
+        "cover":"Gran-Turismo.jpg"
+    },
+    {
+        "id":6,
+        "name":"Strategy",
+        "cover":"Age-of-Empires4.jpg"
+    }
+]

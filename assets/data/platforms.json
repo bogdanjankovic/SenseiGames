@@ -1,0 +1,22 @@
+[
+  {
+    "id":1,
+    "value":"PC"
+  },
+  {
+    "id":2,
+    "value":"XBOX Series X"
+  },
+  {
+    "id":3,
+    "value":"PS5"
+  },
+  {
+    "id":4,
+    "value":"Nintendo Switch"
+  },
+  {
+    "id":5,
+    "value":"PS4"
+  }
+]
