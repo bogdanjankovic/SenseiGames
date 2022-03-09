@@ -437,4 +437,6 @@ function fillBasket(){
         let filteredProducts = itemsProducs.filter(item =>(itemsProducs.indexOf(item)) != indexItem);               
         localStorage.setItem('cart', JSON.stringify(filteredProducts));
         $(el).parent().parent().remove()
+        if(filteredProducts.length<1)
+        $('#cartSummary').hide();
     }
