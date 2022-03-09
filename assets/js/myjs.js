@@ -101,7 +101,7 @@ function getRandomElements(array,limit, newProduct=false){
 function printProducts(data, id="#products"){
     let html=``;
     data.forEach(p => {
-        html+=`<div  class="col-lg-3 col-md-6 col-sm-12 pb-1">
+        html+=`<div onclick="availablePlatforms(this.id)" id="${p.id}"  class="col-lg-3 col-md-6 col-sm-12 pb-1">
         <div id="${p.id}" class="card product-item  mb-4">
             <div class="card-header product-img position-relative overflow-hidden bg-transparent  p-0">
                 <img class="img-fluid w-100" src="assets/img/${p.image.img}" alt="">
@@ -445,4 +445,16 @@ function fillBasket(){
         $(el).parent().parent().remove()
         if(filteredProducts.length<1)
         $('#cartSummary').html('No products left in cart!')
+    }
+
+
+
+   function availablePlatforms(id){
+        getData("products.json", getProducts);
+        function getProducts(data){
+            localStorage.setItem("allProducts",JSON.stringify(data))
+            let product=data.filter(x=>x.id==id)
+            localStorage.setItem("productPlat", JSON.stringify(data.platform))
+             console.log(localStorage.getItem("productPlat"));
+        }
     }
