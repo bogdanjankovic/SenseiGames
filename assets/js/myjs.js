@@ -455,6 +455,6 @@ function fillBasket(){
             localStorage.setItem("allProducts",JSON.stringify(data))
             let product=data.filter(x=>x.id==id)
             localStorage.setItem("productPlat", JSON.stringify(data.platform))
-             console.log(localStorage.getItem("productPlat"));
+             console.log(JSON.parse(localStorage.getItem("productPlat")));
         }
     }
