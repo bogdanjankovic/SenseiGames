@@ -196,7 +196,7 @@ function filterPlatform(data){
     let checked=[]
     $(".platforms:checked").each(function(el){
         checked.push(parseInt($(this).val()))
-        console.log(checked.push(parseInt($(this).val())));
+        
     })
     if(checked!=0){
         return data.filter(x => x.platform.some(z=>checked.includes(z)))
@@ -223,7 +223,7 @@ $("#sort").change(filterChange)
 function sort(data){
 
     let value=$("#sort").val()
-    console.log(value)
+    
     if(value=="priceAsc"){
         return data.sort((a,b)=>a.price.new.substring(1)-b.price.new.substring(1))
     }
@@ -369,7 +369,7 @@ function fillBasket(){
             <td  class="align-middle productTotal">$${productTotal[i]}</td>
             <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
             </tr>`
-        }    console.log("Initial "+total);
+        }    
          
         
         
@@ -378,7 +378,7 @@ function fillBasket(){
         $(".changeQuantity").click(function(){
     
             if($(this).hasClass('btn-plus')){
-                console.log("tajna")
+                
                 let currently=$(this).parent().parent().find("input[type=text]").val()
                 let currentlyInt=parseInt(currently)
                 let next=currentlyInt+1
@@ -400,7 +400,7 @@ function fillBasket(){
                 if(next==0){
                     total[string.charAt(0)-1]=parseFloat(productTotal[string.charAt(0)-1])*next.toFixed(2)
                     let idOfProduct=$(this).parent().parent().parent().parent().attr('id')
-                    console.log("id proizvoda: "+idOfProduct)
+                    
                     let itemsProducs = JSON.parse(localStorage.getItem('cart'));
                     
                     //localStorage.setItem('cart', JSON.stringify(filteredProducts));
@@ -417,7 +417,7 @@ function fillBasket(){
 
 
     function subtotal(){
-        console.log("usli u subtotal")
+        
         let sum=0;
     for(let i in total){
         sum+=parseFloat(total[i]);
