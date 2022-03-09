@@ -321,7 +321,7 @@ $("#addToCart").click(function(){
         $('.badge').each(function(){
             $(this).html(cart.length)
         })
-        $("#added").text("Success added!")
+        $("#added").text("Added successfully!")
         fillBasket(cart,platform)
     }
         
@@ -367,7 +367,7 @@ function fillBasket(){
                 </div>
             </td>
             <td  class="align-middle productTotal">$${productTotal[i]}</td>
-            <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
+            <td class="align-middle" onclick="remove(this)"><button class="btn btn-sm btn-danger remove"><i class="fa fa-times"></i></button></td>
             </tr>`
         }    
          
@@ -428,4 +428,13 @@ function fillBasket(){
     
 
 
-
+    function remove(el){
+  
+        let idOfProduct= $(el).parent().parent().attr('id')
+        let itemsProducs = JSON.parse(localStorage.getItem('cart'));
+        let itemForDelete = itemsProducs.filter(item => item[0].id == parseInt(idOfProduct));
+        let indexItem=itemsProducs.indexOf(itemForDelete[0])
+        let filteredProducts = itemsProducs.filter(item =>(itemsProducs.indexOf(item)) != indexItem);               
+        localStorage.setItem('cart', JSON.stringify(filteredProducts));
+        $(el).parent().parent().remove()
+    }
