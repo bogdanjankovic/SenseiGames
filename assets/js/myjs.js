@@ -340,76 +340,79 @@ $(document).ready(function(){
     subtotal();
 })
 function fillBasket(){
-    let cart=JSON.parse(localStorage.getItem("cart"))
-    let platform=JSON.parse(localStorage.getItem("platform"))
-    let html=``;
-    var productTotal=[];
-    for(let i=0; i<cart.length;i++){ 
-        productTotal.push(cart[i][0].price.new.substring(1))
-        total.push(cart[i][0].price.new.substring(1))
-        html+=`<tr id="${i}">
-        <td class="align-middle"><img src="assets/img/${cart[i][0].image.img}" alt=" ${cart[i][0].image.alt}" style="width: 100px;"> ${cart[i][0].image.alt}</td>
-        <td class="align-middle">${cart[i][0].price.new}</td>
-        <td class="align-middle">
-            <div class="input-group quantity mx-auto" style="width: 100px;">
-                <div class="input-group-btn">
-                    <button id="${i+1}minus" class="changeQuantity btn btn-sm btn-danger btn-minus" >
-                    <i class="fa fa-minus"></i>
-                    </button>
+    if(localStorage.getItem("cart")){
+        let cart=JSON.parse(localStorage.getItem("cart"))
+        let platform=JSON.parse(localStorage.getItem("platform"))
+        let html=``;
+        var productTotal=[];
+        for(let i=0; i<cart.length;i++){ 
+            productTotal.push(cart[i][0].price.new.substring(1))
+            total.push(cart[i][0].price.new.substring(1))
+            html+=`<tr id="${i}">
+            <td class="align-middle"><img src="assets/img/${cart[i][0].image.img}" alt=" ${cart[i][0].image.alt}" style="width: 100px;"> ${cart[i][0].image.alt}</td>
+            <td class="align-middle">${cart[i][0].price.new}</td>
+            <td class="align-middle">
+                <div class="input-group quantity mx-auto" style="width: 100px;">
+                    <div class="input-group-btn">
+                        <button id="${i+1}minus" class="changeQuantity btn btn-sm btn-danger btn-minus" >
+                        <i class="fa fa-minus"></i>
+                        </button>
+                    </div>
+                    <input type="text" id="quantity" class="form-control form-control-sm bg-secondary text-center" value="1">
+                    <div class="input-group-btn">
+                        <button id="${i+1}plus" class="changeQuantity btn btn-sm btn-danger btn-plus">
+                            <i class="fa fa-plus"></i>
+                        </button>
+                    </div>
                 </div>
-                <input type="text" id="quantity" class="form-control form-control-sm bg-secondary text-center" value="1">
-                <div class="input-group-btn">
-                    <button id="${i+1}plus" class="changeQuantity btn btn-sm btn-danger btn-plus">
-                        <i class="fa fa-plus"></i>
-                    </button>
-                </div>
-            </div>
-        </td>
-        <td  class="align-middle productTotal">$${productTotal[i]}</td>
-        <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
-        </tr>`
-    }    console.log("Initial "+total);
-     
-    
-    
-
-    $("#cartTable").html(html)
-    $(".changeQuantity").click(function(){
-
-        if($(this).hasClass('btn-plus')){
-            console.log("tajna")
-            let currently=$(this).parent().parent().find("input[type=text]").val()
-            let currentlyInt=parseInt(currently)
-            let next=currentlyInt+1
-            $(this).parent().parent().find("input[type=text]").val(next)
-            let string=$(this).attr("id")
-            
-            $(this).parent().parent().parent().parent().find(".productTotal").html(("$"+(parseFloat(productTotal[string.charAt(0)-1])*next).toFixed(2)))
-            total[string.charAt(0)-1]=parseFloat(productTotal[string.charAt(0)-1])*next.toFixed(2)
-        }
-        else if($(this).hasClass('btn-minus')){
-            let currently=($(this).parent().parent().find("input[type=text]")).val()
-            let currentlyInt=parseInt(currently)
-            let next=currentlyInt-1  
-               
-            $(this).parent().parent().find("input[type=text]").val(next) 
-            let string=$(this).attr("id") 
-            $(this).parent().parent().parent().parent().find(".productTotal").html(("$"+(parseFloat(productTotal[string.charAt(0)-1])*next).toFixed(2)))
-            total[string.charAt(0)-1]=parseFloat(productTotal[string.charAt(0)-1])*next.toFixed(2)    
-            if(next==0){
-                total[string.charAt(0)-1]=parseFloat(productTotal[string.charAt(0)-1])*next.toFixed(2)
-                let idOfProduct=$(this).parent().parent().parent().parent().attr('id')
-                console.log("id proizvoda: "+idOfProduct)
-                let itemsProducs = JSON.parse(localStorage.getItem('cart'));
-                
-                //localStorage.setItem('cart', JSON.stringify(filteredProducts));
-                //localStorage.setItem('sizes', JSON.stringify(filteredSize));
-                //$(this).parent().parent().parent().parent().remove()
-            }
-        }
+            </td>
+            <td  class="align-middle productTotal">$${productTotal[i]}</td>
+            <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
+            </tr>`
+        }    console.log("Initial "+total);
          
-        subtotal()        
-    }) }
+        
+        
+    
+        $("#cartTable").html(html)
+        $(".changeQuantity").click(function(){
+    
+            if($(this).hasClass('btn-plus')){
+                console.log("tajna")
+                let currently=$(this).parent().parent().find("input[type=text]").val()
+                let currentlyInt=parseInt(currently)
+                let next=currentlyInt+1
+                $(this).parent().parent().find("input[type=text]").val(next)
+                let string=$(this).attr("id")
+                
+                $(this).parent().parent().parent().parent().find(".productTotal").html(("$"+(parseFloat(productTotal[string.charAt(0)-1])*next).toFixed(2)))
+                total[string.charAt(0)-1]=parseFloat(productTotal[string.charAt(0)-1])*next.toFixed(2)
+            }
+            else if($(this).hasClass('btn-minus')){
+                let currently=($(this).parent().parent().find("input[type=text]")).val()
+                let currentlyInt=parseInt(currently)
+                let next=currentlyInt-1  
+                   
+                $(this).parent().parent().find("input[type=text]").val(next) 
+                let string=$(this).attr("id") 
+                $(this).parent().parent().parent().parent().find(".productTotal").html(("$"+(parseFloat(productTotal[string.charAt(0)-1])*next).toFixed(2)))
+                total[string.charAt(0)-1]=parseFloat(productTotal[string.charAt(0)-1])*next.toFixed(2)    
+                if(next==0){
+                    total[string.charAt(0)-1]=parseFloat(productTotal[string.charAt(0)-1])*next.toFixed(2)
+                    let idOfProduct=$(this).parent().parent().parent().parent().attr('id')
+                    console.log("id proizvoda: "+idOfProduct)
+                    let itemsProducs = JSON.parse(localStorage.getItem('cart'));
+                    
+                    //localStorage.setItem('cart', JSON.stringify(filteredProducts));
+                    //localStorage.setItem('sizes', JSON.stringify(filteredSize));
+                    //$(this).parent().parent().parent().parent().remove()
+                }
+            }
+             
+            subtotal()        
+        })
+    }
+    }
 
 
 
