@@ -438,5 +438,5 @@ function fillBasket(){
         localStorage.setItem('cart', JSON.stringify(filteredProducts));
         $(el).parent().parent().remove()
         if(filteredProducts.length<1)
-        $('#cartSummary').hide();
+        $('#cartSummary').html('No products left in cart!')
     }
