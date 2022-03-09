@@ -4,7 +4,7 @@ var dataCategories=[];
 
 function getData(url,callback){
     $.ajax({
-        url:"../eshopper-1.0.0/assets/data/"+url,
+        url:"https://bogdanjankovic.github.io/SenseiGames/"+url,
         method: "get",
         dataType: "json",
         success: function(response){
