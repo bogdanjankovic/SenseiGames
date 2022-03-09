@@ -4,7 +4,7 @@ var dataCategories=[];
 
 function getData(url,callback){
     $.ajax({
-        url:"https://bogdanjankovic.github.io/SenseiGames/"+url,
+        url:"https://bogdanjankovic.github.io/SenseiGames/assets/data"+url,
         method: "get",
         dataType: "json",
         success: function(response){
