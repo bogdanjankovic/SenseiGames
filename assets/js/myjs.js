@@ -61,9 +61,15 @@ function printMenu(data){
 }
 
 function restartStorage(elem){
-    if(localStorage.getItem("id")){
-        localStorage.removeItem("id")
+    if(localStorage.getItem("product")){
+        localStorage.removeItem("product")
     }  
+    if(localStorage.getItem("cart")){
+        localStorage.removeItem("cart")
+    } 
+    if(localStorage.getItem("platform")){
+        localStorage.removeItem("platform")
+    } 
     filterChange()
 }
 
