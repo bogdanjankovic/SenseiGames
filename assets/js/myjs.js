@@ -107,7 +107,7 @@ function printProducts(data, id="#products"){
                 </div>
             </div>
             <div class="card-footer d-flex justify-content-between bg-light ">
-            <a href="detail.html" id="viewDetail" class="btn btn-sm text-dark p-0" onclick="viewDetail(this)"><i class="fa-solid fa-magnifying-glass-plus text-danger"></i>View Details</a>
+            <a href="detail.html" id="viewDetail" class="btn btn-sm text-dark p-0" onclick="viewDetail(this)"><i class="fas-solid fa-magnifying-glass-plus text-danger"></i>View Details</a>
             </div>
         </div>
     </div>`
