@@ -274,7 +274,7 @@ function printDetails(){
         let image=product[0].image
 
         $("#detailName").html(name)
-        $("#detailPrice").html(price.new+" $")
+        $("#detailPrice").html(price.new)
         $("#detailImg").attr('src',`assets/img/${image.img}`)
         $("#detailImg").attr('alt',image.alt)
         
@@ -282,11 +282,14 @@ function printDetails(){
         let output=``;
         let platformData=JSON.parse(localStorage.getItem("platform"));
         for(let i in platform){
-            if(platform[i]==platformData[i].id)
-            output+=`<div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" class="custom-control-input" id="platform-${platformData[i].id}" name="platform" value="${platformData[i].id}">
-            <label class="custom-control-label" for="platform-${platformData[i].id}">${platformData[i].value} </label>
-        </div>`
+            for(let j in platformData){
+                if(platform[i]==platformData[j].id)
+                output+=`<div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" id="platform-${platformData[j].id}" name="platform" value="${platformData[j].id}">
+                <label class="custom-control-label" for="platform-${platformData[j].id}">${platformData[j].value} </label>
+            </div>`
+            }
+           
         }
         $("#platforms").html(output)
     }
