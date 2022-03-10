@@ -445,6 +445,7 @@ function fillBasket(){
         localStorage.setItem('cart', JSON.stringify(filteredProducts));
         $(el).parent().parent().remove()
         if(localStorage.getItem('cart').length<1){
+            console.log("ENtered if")
             $('#cartSummary').html('No products left in cart!')
         }
         
