@@ -442,11 +442,10 @@ function fillBasket(){
         let itemsProducts = JSON.parse(localStorage.getItem('cart'));
         let itemForDelete = itemsProducts.filter(item => item[0].id == parseInt(idOfProduct));
         let indexItem=itemsProducts.indexOf(itemForDelete[0])
-        console.log("Product for delete"+indexItem)
         let filteredProducts = itemsProducts.filter(item =>(itemsProducts.indexOf(item)) != indexItem+1);               
         localStorage.setItem('cart', JSON.stringify(filteredProducts));
         $(el).parent().parent().remove()
-        if(localStorage.getItem('cart').length<1){
+        if(JSON.parse(localStorage.getItem('cart')).length<1){
             console.log("ENtered if")
             $('#cartSummary').html('No products left in cart!')
         }
