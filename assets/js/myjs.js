@@ -284,6 +284,8 @@ function printDetails(){
         for(let i in platform){
             for(let j in platformData){
                 if(platform[i]==platformData[j].id)
+                console.log(platform[i]+" PLATFORM OF I");
+                console.log(platformData[j].id+" PLATFORMDATA OF J ID");
                 output+=`<div class="custom-control custom-radio custom-control-inline">
                 <input type="radio" class="custom-control-input" id="platform-${platformData[j].id}" name="platform" value="${platformData[j].id}">
                 <label class="custom-control-label" for="platform-${platformData[j].id}">${platformData[j].value} </label>
