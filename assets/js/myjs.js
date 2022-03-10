@@ -34,7 +34,7 @@ function printCategories(data){
     let html='';
     data.forEach(c => {
         html+=`<a href="shop.html" id="${c.id}" class="catLink nav-item nav-link my-2" onclick="getCatId(this.id)">${c.name}</a>`
-    });
+    });html+=`<a href="shop.html" id="${c.id}" class="catLink nav-item nav-link my-2" onclick="restartStorage(this)">Browse all</a>`
     $('.navCatMenu').each(function(){
         $(this).html(html)
     })   
@@ -70,6 +70,9 @@ function restartStorage(elem){
     if(localStorage.getItem("platform")){
         localStorage.removeItem("platform")
     } 
+    if(localStorage.getItem("id")){
+        localStorage.removeItem("id");
+    }
     filterChange()
 }
 
