@@ -347,7 +347,7 @@ $('.badge').each(function(){
  
 })
 var total=[]
-//$('#cartDiv').html('<p class="text-center col-12">Your cart is empty.</p>')
+
 $(document).ready(function(){
     fillBasket()
     subtotal();
