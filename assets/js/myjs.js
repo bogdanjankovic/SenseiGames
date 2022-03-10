@@ -194,6 +194,7 @@ function printPlatforms(data){
     </div> `
     });
     $('#platformForm').html(html)
+localStorage.setItem("platform",JSON.stringify(data));
 }
 
 $('#platformForm').on('change', '.platforms', filterChange)
@@ -277,20 +278,17 @@ function printDetails(){
         $("#detailImg").attr('src',`assets/img/${image.img}`)
         $("#detailImg").attr('alt',image.alt)
         
-        var output="";
-        let allPlatforms=$('input[name=platform]')
-        for(let i=0; i<allPlatforms.length;i++){
-            let id=allPlatforms[i].id
-            let platformNumber=id.match(/\d/)[0]
-            
-            if(platform.indexOf(parseInt(platformNumber))==-1){
-               output+=`<div class="custom-control custom-radio custom-control-inline">
-               <input type="radio" class="custom-control-input" id="platform-${allPlatforms[i].id}" name="platform" value="${allPlatforms[i].id}">
-               <label class="custom-control-label" for="platform-${allPlatforms[i].id}"><img class="platformimg" src="assets/img/${allPlatforms[i].id}.webp" alt="${allPlatforms[i].id} Platform"></label>`
-            }    
-             
+
+        let output=``;
+        let platformData=JSON.parse(localStorage.getItem("platform"));
+        for(let i in platform){
+            if(platform[i]==platformData[i].id)
+            output+=`<div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" class="custom-control-input" id="platform-${platformData[i].id}" name="platform" value="${platformData[i].id}">
+            <label class="custom-control-label" for="platform-${platformData[i].id}">${platformData[i].name} </label>
+        </div>`
         }
-        $('#platform').html=output;
+        $("#platforms").html(output)
     }
 }
 
