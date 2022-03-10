@@ -441,7 +441,7 @@ function fillBasket(){
         let itemForDelete = itemsProducts.filter(item => item[0].id == parseInt(idOfProduct));
         let indexItem=itemsProducts.indexOf(itemForDelete[0])
         console.log("Product for delete"+indexItem)
-        let filteredProducts = itemsProducts.filter(item =>(itemsProducts.indexOf(item)) != indexItem);               
+        let filteredProducts = itemsProducts.filter(item =>(itemsProducts.indexOf(item)) != indexItem+1);               
         localStorage.setItem('cart', JSON.stringify(filteredProducts));
         $(el).parent().parent().remove()
         if(localStorage.getItem('cart').length<1)
