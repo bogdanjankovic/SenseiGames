@@ -285,7 +285,7 @@ function printDetails(){
             if(platform[i]==platformData[i].id)
             output+=`<div class="custom-control custom-radio custom-control-inline">
             <input type="radio" class="custom-control-input" id="platform-${platformData[i].id}" name="platform" value="${platformData[i].id}">
-            <label class="custom-control-label" for="platform-${platformData[i].id}">${platformData[i].name} </label>
+            <label class="custom-control-label" for="platform-${platformData[i].id}">${platformData[i].value} </label>
         </div>`
         }
         $("#platforms").html(output)
