@@ -447,7 +447,8 @@ function fillBasket(){
         $(el).parent().parent().remove()
         if(JSON.parse(localStorage.getItem('cart')).length<1){
             console.log("ENtered if")
-            $('#cartSummary').html('No products left in cart!')
+            let result=`<p> No products left in cart!</p> <a href="shop.html"> Go back</a>`
+            $('#cartSummary').html(result);
         }
         
     }
