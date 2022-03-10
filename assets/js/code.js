@@ -19,17 +19,13 @@ $(document).ready(function(){
 getData("categories.json",printCategories);
 getData("categories.json",printCoverCat);
 getData("menu.json",printMenu)
-getData("products.json",printTrendyProducts);
+getData("products.json",printBestSellingProducts);
 getData("products.json",printJustArrivedProducts);
-//getData("headerImages.json",printHeader)
-
-//getData("partners.json",getPartners)
-getData("socialLinks.json",printSocial)
 getData("products.json",printProductsShop)
 getData("platforms.json",printPlatforms)
 })
 
-
+//Print neccessary data for the website to render properly
 function printCategories(data){
     let html='';
     data.forEach(c => {
@@ -44,9 +40,7 @@ function printCategories(data){
 var id;
 function getCatId(elem){
     id=elem
-    console.log(id)
-    localStorage.setItem("id",id)
-    console.log( localStorage.getItem("id",id))
+    localStorage.setItem("id",id);
     filterChange();
 }
 
@@ -59,28 +53,12 @@ function printMenu(data){
         $(this).html(html)
     }) 
 }
-
-function restartStorage(elem){
-    if(localStorage.getItem("product")){
-        localStorage.removeItem("product")
-    }  
-    if(localStorage.getItem("cart")){
-        localStorage.removeItem("cart")
-    } 
-    if(localStorage.getItem("platform")){
-        localStorage.removeItem("platform")
-    } 
-    if(localStorage.getItem("id")){
-        localStorage.removeItem("id");
-    }
-    filterChange()
-}
-
-function printTrendyProducts(data){
+//Prints 4 random products
+function printBestSellingProducts(data){
     let randomArray=getRandomElements(data, 4);
-    printProducts(randomArray, "#trendyProducts");
+    printProducts(randomArray, "#bestSellingProducts");
 }
-
+//Prints 4 random products tagged as new
 function printJustArrivedProducts(data){
     let randomArray=getRandomElements(data, 4, true);
     printProducts(randomArray,"#justArrivedProducts")
@@ -125,7 +103,6 @@ function printProducts(data, id="#products"){
 }
 
 function printProductsShop(data){
-    console.log(data)
     data=filterSearch(data)
     data=filterCategory(data)
     data=filterPrice(data)
@@ -133,28 +110,6 @@ function printProductsShop(data){
     data=sort(data)
     printProducts(data)
 }
-
-function filterCategory(data){      
-   
-    let id=localStorage.getItem("id");
-    console.log("filter change"+  id)
-    if(id){
-        return data.filter(x=>x.cat==id);
-    }
-    return data;
-}
-function filterPrice(data){
-    let value=$("#range").val();
-    if(value==100) return data
-    $("#rangeValue").text(value + "$");
-    return data.filter(x=>parseInt(x.price.new.substring(1))<value);
-} 
-
-function filterChange(){
-    getData("products.json",printProductsShop);
-    console.log("change")
-}
-
 
 
 function printCoverCat(data){
@@ -172,20 +127,6 @@ function printCoverCat(data){
     });
     $('#catCover').html(html)
 }
-
-
-function printSocial(data){
-    let html=``;
-    data.forEach(d => {
-        html+=`<a class="text-white pl-2" href="${d.href}">
-                 <i class="${d.ico}"></i>
-            </a>`
-    });
-    $('.social').each(function(){
-        $(this).html(html)
-    })   
-}
-
 $("#range").on('change', filterChange)
 
 function printPlatforms(data){
@@ -199,6 +140,48 @@ function printPlatforms(data){
     $('#platformForm').html(html)
 localStorage.setItem("platform",JSON.stringify(data));
 }
+
+//Filter by Category
+function filterCategory(data){      
+   
+    let id=localStorage.getItem("id");
+    if(id){
+        return data.filter(x=>x.cat==id);
+    }
+    return data;
+}
+
+//Filter by Price
+function filterPrice(data){
+    let value=$("#range").val();
+    if(value==100) return data
+    $("#rangeValue").text(value + "$");
+    return data.filter(x=>parseInt(x.price.new.substring(1))<value);
+} 
+
+//Takes any changes made, and uses it to filter out products.json
+function filterChange(){
+    getData("products.json",printProductsShop);
+  
+}
+//Clears storage elements
+function restartStorage(elem){
+    if(localStorage.getItem("product")){
+        localStorage.removeItem("product")
+    }  
+    if(localStorage.getItem("cart")){
+        localStorage.removeItem("cart")
+    } 
+    if(localStorage.getItem("platform")){
+        localStorage.removeItem("platform")
+    } 
+    if(localStorage.getItem("id")){
+        localStorage.removeItem("id");
+    }
+    filterChange()
+}
+
+
 
 $('#platformForm').on('change', '.platforms', filterChange)
 
@@ -216,7 +199,7 @@ function filterPlatform(data){
 
 
 $("#searchName").keyup(filterChange)
-
+//Filter using search
 function filterSearch(data){
     let value=$('#searchName').val()
     if(value){
@@ -230,6 +213,7 @@ function filterSearch(data){
 
 $("#sort").change(filterChange)
 
+//Sort
 function sort(data){
 
     let value=$("#sort").val()
@@ -249,7 +233,7 @@ function sort(data){
     return data
 }
 
-
+//Prints data of the selected product
 function viewDetail(el){
     let selected=$(el).parent().parent().attr('id');
 
@@ -300,7 +284,7 @@ function printDetails(){
         $("#platforms").html(output)
     }
 }
-
+//Adds desired product to cart
 $("#addToCart").click(function(){
     let platform=$('input[name="platform"]:checked').val();
     if(!platform){
@@ -347,7 +331,7 @@ $('.badge').each(function(){
  
 })
 var total=[]
-
+//Populates the table dinamically with selected product data
 $(document).ready(function(){
     fillBasket()
     subtotal();
@@ -386,7 +370,7 @@ function fillBasket(){
          
         
         
-    
+    //Changes the price dinamically according to the quantity number which can be manipulated at will
         $("#cartTable").html(html)
         $(".changeQuantity").click(function(){
     
@@ -444,7 +428,7 @@ function fillBasket(){
     }
     
 
-
+//When pressing X, removes the desired product from the cart entirely, and if that is the last product in the cart, prints a message
     function remove(el){
   
         let idOfProduct= $(el).parent().parent().attr('id')
@@ -455,8 +439,7 @@ function fillBasket(){
         localStorage.setItem('cart', JSON.stringify(filteredProducts));
         $(el).parent().parent().remove()
         if(JSON.parse(localStorage.getItem('cart')).length<1){
-            console.log("ENtered if")
-            let result=`<p> No products left in cart!</p> <p> <a href="shop.html"> Go back</a></p>`
+            let result=`<p> No products left in cart!</p> <p> &nbsp;<a href="shop.html"> Go back</a></p>`
             $('#cartSummary').html(result);
         }
         
