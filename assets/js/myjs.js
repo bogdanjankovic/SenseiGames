@@ -448,14 +448,3 @@ function fillBasket(){
         $('#cartSummary').html('No products left in cart!')
     }
 
-
-
-   function availablePlatforms(id){
-        getData("products.json", getProducts);
-        function getProducts(data){
-            localStorage.setItem("allProducts",JSON.stringify(data))
-            let product=data.filter(x=>x.id==id)
-            localStorage.setItem("productPlat", JSON.stringify(product))
-             console.log(JSON.parse(localStorage.getItem("productPlat")));
-        }
-    }
