@@ -34,7 +34,7 @@ function printCategories(data){
     let html='';
     data.forEach(c => {
         html+=`<a href="shop.html" id="${c.id}" class="catLink nav-item nav-link my-2" onclick="getCatId(this.id)">${c.name}</a>`
-    });html+=`<a href="shop.html" id="7" class="catLink nav-item nav-link my-2" onclick="restartStorage(this)">Browse all</a>`
+    });
     $('.navCatMenu').each(function(){
         $(this).html(html)
     })   
@@ -450,7 +450,7 @@ function fillBasket(){
         $(el).parent().parent().remove()
         if(JSON.parse(localStorage.getItem('cart')).length<1){
             console.log("ENtered if")
-            let result=`<p> No products left in cart!</p> <a href="shop.html"> Go back</a>`
+            let result=`<p> No products left in cart!</p> <br/> <a href="shop.html"> Go back</a>`
             $('#cartSummary').html(result);
         }
         
