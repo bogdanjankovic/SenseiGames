@@ -444,7 +444,9 @@ function fillBasket(){
         let filteredProducts = itemsProducts.filter(item =>(itemsProducts.indexOf(item)) != indexItem+1);               
         localStorage.setItem('cart', JSON.stringify(filteredProducts));
         $(el).parent().parent().remove()
-        if(localStorage.getItem('cart').length<1)
-        $('#cartSummary').html('No products left in cart!')
+        if(localStorage.getItem('cart').length<1){
+            $('#cartSummary').html('No products left in cart!')
+        }
+        
     }
 
