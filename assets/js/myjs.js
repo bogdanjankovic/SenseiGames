@@ -107,7 +107,7 @@ function printProducts(data, id="#products"){
         html+=`<div onclick="availablePlatforms(this.id)" id="${p.id}"  class="col-lg-3 col-md-6 col-sm-12 pb-1">
         <div id="${p.id}" class="card product-item  mb-4">
             <div class="card-header product-img position-relative overflow-hidden bg-transparent  p-0">
-                <img class="img-fluid w-100" src="assets/img/${p.image.img}" alt="">
+                <img class="img-fluid w-100" src="assets/img/${p.image.img}" alt="${p.image.alt}">
             </div>
             <div class="card-body  text-center p-0 pt-4 pb-3">
                 <h6 class="text-truncate mb-3">${p.name}</h6>
@@ -275,11 +275,13 @@ function printDetails(){
         let platform=product[0].platform
         let price=product[0].price
         let image=product[0].image
+        let description=product[0].description;
 
         $("#detailName").html(name)
         $("#detailPrice").html(price.new)
         $("#detailImg").attr('src',`assets/img/${image.img}`)
         $("#detailImg").attr('alt',image.alt)
+        $("#description").html(description);
         
 
         let output=``;
