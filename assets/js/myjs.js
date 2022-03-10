@@ -351,7 +351,7 @@ $(document).ready(function(){
     subtotal();
 })
 function fillBasket(){
-    if(localStorage.getItem("cart")){
+    if(localStorage.getItem("cart") && JSON.parse(localStorage.getItem("cart")).length!=0){
         let cart=JSON.parse(localStorage.getItem("cart"))
         let platform=JSON.parse(localStorage.getItem("platform"))
         let html=``;
@@ -423,6 +423,10 @@ function fillBasket(){
             subtotal()        
         })
     }
+        else {
+            let result=`<p> No products in cart!</p> <p> <a href="shop.html"> Go back</a></p>`
+            $('#cartSummary').html(result);
+        }
     }
 
 
@@ -450,7 +454,7 @@ function fillBasket(){
         $(el).parent().parent().remove()
         if(JSON.parse(localStorage.getItem('cart')).length<1){
             console.log("ENtered if")
-            let result=`<p> No products left in cart!</p> <br/> <a href="shop.html"> Go back</a>`
+            let result=`<p> No products left in cart!</p> <p> <a href="shop.html"> Go back</a></p>`
             $('#cartSummary').html(result);
         }
         
