@@ -1610,12 +1610,12 @@ pre code {
 }
 
 .table-hover .table-primary:hover {
-  background-color: #ead2d0;
+  background-color: #dc3545;
 }
 
 .table-hover .table-primary:hover > td,
 .table-hover .table-primary:hover > th {
-  background-color: #ead2d0;
+  background-color: #dc3545;
 }
 
 .table-secondary,
