@@ -7,6 +7,7 @@ var ime,mejl;
 function regEx(vrednost,id){
     console.log("usli smo u funkciju");
 var getEl=id;
+    var disableSelection.setAttribute("disabled","true");
 
 let polje=document.getElementById(getEl);
     if(id=="email"){
@@ -20,7 +21,7 @@ let polje=document.getElementById(getEl);
         }
         else{
            polje.nextElementSibling.innerHTML="<span class='text text-warning'>Dozvoljen format je: text@mail.domain!</span>";
-           var disableSelection =document.getElementById("submit")
+            disableSelection =document.getElementById("submit")
            disableSelection.setAttribute("disabled","true");
            polje.classList.add("alert","alert-danger")
            br++;
@@ -37,7 +38,7 @@ let polje=document.getElementById(getEl);
        }
        else{
           polje.nextElementSibling.innerHTML="<span class='text text-warning'>Imena počinju velikim slovom i ne sadrže brojeve.</span>";
-          var disableSelection =document.getElementById("submit")
+           disableSelection =document.getElementById("submit")
           disableSelection.setAttribute("disabled","true");
           polje.classList.add("alert","alert-danger")
           br++;
