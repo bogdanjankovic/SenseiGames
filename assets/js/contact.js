@@ -26,11 +26,6 @@ let polje=document.getElementById(getEl);
         }
         else{
            polje.nextElementSibling.innerHTML="<span class='text text-warning'>Dozvoljen format je: text@mail.domain!</span>";
-
-           disableSelection.setAttribute("disabled","true");
-
-            
-
            disableSelection.setAttribute("disabled","true");
            polje.classList.add("alert","alert-danger")
            br++;
